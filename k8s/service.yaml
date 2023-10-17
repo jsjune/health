@@ -1,7 +1,6 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: krampoline
   name: my-app-lb
 spec:
   type: LoadBalancer
