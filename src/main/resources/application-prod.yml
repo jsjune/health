@@ -1,12 +1,12 @@
 spring:
   datasource:
     master:
-      url: jdbc:mysql://mysql-master-service:3306/battingGround?allowPublicKeyRetrieval=true&useSSL=false
+      jdbc-url: jdbc:mysql://mysql-master-service:3306/battingGround?allowPublicKeyRetrieval=true&useSSL=false
       driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
       password: 1234
     slave:
-      url: jdbc:mysql://mysql-slave-service:3306/battingGround?allowPublicKeyRetrieval=true&useSSL=false
+      jdbc-url: jdbc:mysql://mysql-slave-service:3306/battingGround?allowPublicKeyRetrieval=true&useSSL=false
       driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
       password: 1234
