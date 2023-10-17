@@ -14,7 +14,5 @@ spec:
           - path: /
             pathType: Prefix
             backend:
-              service:
-                name: "my-app-lb"
-                port:
-                  number: 80
+              serviceName: my-app-lb # 백엔드 서비스의 이름
+              servicePort: 80 # 서비스의 포트
