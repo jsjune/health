@@ -10,5 +10,3 @@ f
 6src/main/java/com/example/health/HealthRepository.java,a\1\a107ba85c185ced6de7d1cd4d6d4e42ab0323a32
 \
 ,src/main/java/com/example/health/Health.java,e\8\e89704a5a9fee7d083b1806dac79adf9d51c1a56
-f
-6src/main/java/com/example/health/HealthController.java,8\0\808edc0117c93173d7e496236e6c3d22ea1ca447
