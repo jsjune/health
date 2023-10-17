@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/k654bb98e3b9ba")
+@RequestMapping("/{dynamicPath}")
 public class HealthController {
     private final HealthRepository healthRepository;
 
