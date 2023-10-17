@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-master-service
+spec:
+  selector:
+    app: mysql-master
+  ports:
+    - protocol: TCP
+      port: 3306
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql-master
+spec:
+  serviceName: mysql-master-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-master
+  template:
+    metadata:
+      labels:
+        app: mysql-master
+    spec:
+      containers:
+        - name: mysql-master
+          image: mysql:latest  # 또는 원하는 MySQL 이미지
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "1234"  # 원하는 비밀번호로 변경
+            - name: MYSQL_DATABASE
+              value: "battingGround"

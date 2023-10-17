@@ -35,5 +35,20 @@ spec:
           name: my-app
           ports:
             - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "production"
+            - name: SPRING_DATASOURCE_MASTER_URL
+              value: "jdbc:mysql://mysql-master-service:3306/battingGround?allowPublicKeyRetrieval=true&useSSL=false"
+            - name: SPRING_DATASOURCE_MASTER_USERNAME
+              value: "root"
+            - name: SPRING_DATASOURCE_MASTER_PASSWORD
+              value: "1234"
+            - name: SPRING_DATASOURCE_SLAVE_URL
+              value: "jdbc:mysql://mysql-slave-service:3306/battingGround?allowPublicKeyRetrieval=true&useSSL=false"
+            - name: SPRING_DATASOURCE_SLAVE_USERNAME
+              value: "root"
+            - name: SPRING_DATASOURCE_SLAVE_PASSWORD
+              value: "1234"
           resources: {}
 status: {}

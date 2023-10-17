@@ -1,4 +1,6 @@
-namespace: krampoline
+namespace: default
 resources:
   - deployment.yaml
   - ingress.yaml
+  - mysql-master.yaml
+  - mysql-slave.yaml

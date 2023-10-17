@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-slave-service
+spec:
+  selector:
+    app: mysql-slave
+  ports:
+    - protocol: TCP
+      port: 3306
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql-slave
+spec:
+  serviceName: mysql-slave-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-slave
+  template:
+    metadata:
+      labels:
+        app: mysql-slave
+    spec:
+      containers:
+        - name: mysql-slave
+          image: mysql:latest  # 또는 원하는 MySQL 이미지
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "1234"  # 원하는 비밀번호로 변경
+            - name: MYSQL_DATABASE
+              value: "battingGround"
+            - name: MYSQL_MASTER_HOST
+              value: "mysql-master-0"  # 마스터 StatefulSet 파드의 이름
+            - name: MYSQL_MASTER_PORT
+              value: "3306"
