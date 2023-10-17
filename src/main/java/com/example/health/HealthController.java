@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/k52305ffbc652a")
+@RequestMapping("/k654bb98e3b9ba")
 public class HealthController {
     private final HealthRepository healthRepository;
 
