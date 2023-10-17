@@ -8,7 +8,7 @@ spec: # 사용자가 원하는 오브젝트의 상태를 정의
   replicas: 1 # pod 복제본의 수
   selector: # 위의 오브젝트에 의해 관리될 Pod를 선택하는 기준
     matchLabels: # 오브젝트에서 다른 오브젝트를 선택하기 위해 사용되는 레이블 선택기
-    app: my-app
+      app: my-app  # 특정 레이블을 가진 Pod만 선택
   template: # 새로운 Pod 인스턴스를 생성하기 위한 템플릿
     metadata: # Pod의 메타데이터
       labels:
@@ -43,4 +43,3 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8080
-
