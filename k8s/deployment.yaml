@@ -31,7 +31,7 @@ spec:
         run: my-app
     spec:
       containers:
-        - image: krmp-d2hub-idock.9rum.cc/dev-test/repo_26722b592745
+        - image: krmp-d2hub-idock.9rum.cc/dev-test/repo_d9c9c0883528
           name: my-app
           ports:
             - containerPort: 8080
