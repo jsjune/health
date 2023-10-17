@@ -1,3 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-lb
+spec:
+  type: LoadBalancer
+  selector:
+    run: my-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -22,21 +35,5 @@ spec:
           name: my-app
           ports:
             - containerPort: 8080
-          resources: # 컨테이너에 할당된 자원의 제한 및 요청
-            limits: # 자원의 최대 제한량
-              cpu: 500m # CPU의 최대 사용량을 0.5 코어로 설정
-            requests: # 자원의 최소 요청량
-              cpu: 200m # CPU의 최소 사용량을 0.2 코어로 설정
----
-apiVersion: v1
-kind: Service # 오브젝트 타입
-metadata:
-  name: my-app-lb # 오브젝트 이름
-spec:
-  type: NodePort # 서비스 타입
-  selector: # 서비스가 전달하는 트래픽을 받을 파드들을 선택하는 기준
-    app: my-app
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080
+          resources: {}
+status: {}
