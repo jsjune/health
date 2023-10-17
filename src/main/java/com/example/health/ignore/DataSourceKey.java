@@ -1,8 +1,10 @@
 package com.example.health.ignore;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
+@Profile("production")
 public class DataSourceKey {
     private static final String MASTER_KEY = "master";
     private static final String SLAVE_KEY = "slave";

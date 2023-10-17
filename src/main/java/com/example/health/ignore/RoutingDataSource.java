@@ -2,11 +2,13 @@ package com.example.health.ignore;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 @RequiredArgsConstructor
 @Slf4j
+@Profile("production")
 public class RoutingDataSource extends AbstractRoutingDataSource {
     private final DataSourceKey dataSourceKey;
 
