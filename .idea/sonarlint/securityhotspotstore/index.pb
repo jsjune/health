@@ -1,9 +1,6 @@
 
 g
 7src/main/java/com/example/health/HealthApplication.java,a\2\a21f8038b4fd0bffebb8fd7c1833c84a89fb8bbe
-:
-
-Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
 7
 HELP.md,1\a\1a273f73b7a477b0745593641bd708a6182c7ad5
 f
