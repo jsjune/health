@@ -1,4 +1,4 @@
 namespace: default
 resources:
-  - deployment.yaml
   - nginx.yaml
+  - deployment.yaml
