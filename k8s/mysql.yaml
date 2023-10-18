@@ -1,3 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+spec:
+  clusterIP: None
+  selector:
+    app: mysql
+  ports:
+    - protocol: TCP
+      port: 3306
+
+---
+
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -22,9 +36,9 @@ spec:
               containerPort: 3306
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: 1234
+              value: "1234"
             - name: MYSQL_DATABASE
-              value: battingGround
+              value: "battingGround"
           volumeMounts:
             - name: data
               mountPath: /var/lib/mysql
