@@ -1,10 +1,8 @@
 package com.example.health;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -13,6 +11,7 @@ import java.util.UUID;
 @RequestMapping("/{dynamicPath}")
 public class HealthController {
     private final HealthRepository healthRepository;
+    private final StringRedisTemplate stringRedisTemplate;
 
     @GetMapping("/health")
     public String health() {
@@ -28,5 +27,16 @@ public class HealthController {
     @GetMapping("/health/{id}")
     public Health getHealth(@PathVariable Long id) {
         return healthRepository.findById(id).orElse(null);
+    }
+
+    @GetMapping("/redis/set")
+    public String setRedisValue(@RequestParam String key, @RequestParam String value) {
+        stringRedisTemplate.opsForValue().set(key, value);
+        return "key : " + key + " value : " + value;
+    }
+
+    @GetMapping("/redis/get/{key}")
+    public String getRedisValue(@PathVariable String key) {
+        return "value: " + stringRedisTemplate.opsForValue().get(key);
     }
 }
