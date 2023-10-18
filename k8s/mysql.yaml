@@ -1,22 +1,9 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: mysql-service
-spec:
-  selector:
-    app: mysql
-  ports:
-    - protocol: TCP
-      port: 3306
-
----
-
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mysql
 spec:
-  serviceName: mysql-service
+  serviceName: mysql
   replicas: 1
   selector:
     matchLabels:
@@ -26,13 +13,28 @@ spec:
       labels:
         app: mysql
     spec:
+      terminationGracePeriodSeconds: 10
       containers:
         - name: mysql
-          image: mysql:latest  # 또는 원하는 MySQL 이미지
+          image: mysql:latest
           ports:
-            - containerPort: 3306
+            - protocol: TCP
+              containerPort: 3306
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: "1234"  # 원하는 비밀번호로 변경
+              value: 1234
             - name: MYSQL_DATABASE
-              value: "battingGround"
+              value: battingGround
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        storageClassName: standard
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
