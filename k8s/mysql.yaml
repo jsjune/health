@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: mysql-service
 spec:
+  clusterIP: None
   selector:
     app: mysql
   ports:
@@ -34,6 +35,8 @@ spec:
             - protocol: TCP
               containerPort: 3306
           env:
+            - name: TZ
+              value: Asia/Seoul
             - name: MYSQL_ROOT_PASSWORD
               value: "1234"
             - name: MYSQL_DATABASE
@@ -45,7 +48,6 @@ spec:
     - metadata:
         name: data
       spec:
-        storageClassName: standard
         accessModes:
           - ReadWriteOnce
         resources:
