@@ -19,10 +19,10 @@ import javax.sql.DataSource;
 import java.util.Map;
 
 @RequiredArgsConstructor
-@Configuration
-@EnableTransactionManagement
-@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
-@Profile("production")
+//@Configuration
+//@EnableTransactionManagement
+//@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
+//@Profile("production")
 public class ReplicationDataSourceConfig {
     private final DataSourceKey dataSourceKey;
 

@@ -8,7 +8,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 
 @RequiredArgsConstructor
 @Slf4j
-@Profile("production")
+//@Profile("production")
 public class RoutingDataSource extends AbstractRoutingDataSource {
     private final DataSourceKey dataSourceKey;
 

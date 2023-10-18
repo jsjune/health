@@ -5,3 +5,12 @@ g
 HELP.md,1\a\1a273f73b7a477b0745593641bd708a6182c7ad5
 f
 6src/main/java/com/example/health/HealthRepository.java,a\1\a107ba85c185ced6de7d1cd4d6d4e42ab0323a32
+f
+6src/main/java/com/example/health/HealthController.java,8\0\808edc0117c93173d7e496236e6c3d22ea1ca447
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+D
+k8s/mysql-slave.yaml,8\8\883b81bb4caafa6b34d6e635c28a856ff1dd4bca
+\
+,src/main/java/com/example/health/Health.java,e\8\e89704a5a9fee7d083b1806dac79adf9d51c1a56
