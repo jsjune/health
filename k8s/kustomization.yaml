@@ -3,3 +3,7 @@ resources:
   - deployment.yaml
   - ingress.yaml
   - mysql.yaml
+configMapGenerator:
+  - name: init-db
+    files:
+      - configs/init.sql
