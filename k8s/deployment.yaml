@@ -37,12 +37,12 @@ spec:
             - containerPort: 8080
           env:
             - name: SPRING_PROFILES_ACTIVE
-              value: production
+              value: "production"
             - name: SPRING_DATASOURCE_MASTER_URL
-              value: jdbc:mysql://mysql-service:3306/battingGround
+              value: "jdbc:mysql://mysql-service:3306/battingGround"
             - name: SPRING_DATASOURCE_MASTER_USERNAME
-              value: root
+              value: "root"
             - name: SPRING_DATASOURCE_MASTER_PASSWORD
-              value: 1234
+              value: "1234"
           resources: {}
 status: {}
