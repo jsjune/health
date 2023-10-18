@@ -1,7 +1,7 @@
 namespace: default
 resources:
   - deployment.yaml
-  - ingress.yaml
+#  - ingress.yaml
   - mysql.yaml
 configMapGenerator:
   - name: init-db
